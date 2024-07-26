@@ -1,0 +1,40 @@
+{% extends 'users/admin.html' %}
+
+{% block title %}
+<title>This is Seller page</title>
+{% endblock title %}
+
+
+
+
+{% block content %}
+<table class="table">
+    <thead>
+      <tr>
+          <th scope="col">Id</th>
+          <th scope="col">First name</th>
+          <th scope="col">Last name</th>
+          <th scope="col">Phone number</th>
+          <th scope="col">Image</th>
+          <th scope="col">Buttons</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for seller in sellers %}
+      <tr>
+          <th scope="row">{{ seller.user.id }}</th>
+          <td>{{ seller.user.first_name }}</td>
+          <td>{{ seller.user.last_name }}</td>
+          <td>{{ seller.user.phone_number }}</td>
+          <th scope="row">{{ seller.user.image }}</th>
+          <td>
+            <a class="btn btn-success" href="{% url 'users:seller_update' seller.user.id %}">Update</a>
+            <a class="btn btn-danger" href="{% url 'users:seller_delete' seller.id %}">Delete</a>
+          </td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<form  method="post" >
+    {% csrf_token %}
+
+
+    <div class="Contact">
+        <div class="container">
+           <div class="row">
+              <div class="col-md-12">
+                 <div class="titlepage3">
+                    <h2>Register</h2>
+                 </div>
+              </div>
+           </div>
+           <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                 <form>
+                    <div class="row">
+                       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                          {{form}}
+                       </div>
+                    </div>
+                 </form>
+              </div>
+              <button class="send-btn">Save</button>
+           </div>
+        </div>
+     </div>
+
+    <button type="submit" class="btn btn-outline-info">Log in</button>
+</form>
+
+
+{% endblock content %}

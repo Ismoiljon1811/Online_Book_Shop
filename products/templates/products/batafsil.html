@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5" style="background-color:turquoise;">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{product.image.url}}" alt="..." /></div>
+            <div class="col-md-6">
+                <h1 class="display-5 fw-bolder">Kitob nomi: {{product.name}}</h1>
+                <div class="fs-5 mb-5">
+                    <span>Kitob narxi: {{product.price}}</span>
+                </div>
+                <p class="lead">Siz biz bilan eng yaxshi onlaringizni o'tkazasiz bu yer ham siz uchun eng ko'p quvonch ulasha oladigan yerligiga ishonamiz. Bu yerga sizni eng zamonaviy texnikalarda yetkazib u yerdan qayta yana o'z uyingizga yetkazib qo'yamiz.</p>
+                <div class="d-flex">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <i>Olmoqchi bo'lgan kitoblaringiz sonini quyidagi joyga kiriting va 'add to cart' tugmasini bosing</i>
+                        <input class="form-control text-center me-3" id="inputQuantity" name="cart" type="num" value="1" style="max-width: 3rem" />
+                        <button class="btn btn-success" type="submit">Add to cart</button>
+                    </form>                
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

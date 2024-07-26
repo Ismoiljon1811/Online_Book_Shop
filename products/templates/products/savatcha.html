@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>This is Savatcha page</title>
+{% endblock title %}
+
+
+
+cart
+{% block content %}
+<table class="table">
+    <thead>
+      <tr>
+          <th scope="col">Id</th>
+          <th scope="col"> Name</th>
+          <th scope="col"> Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Image</th>
+          <th scope="col">category</th>
+          <th scope="col">Buttons</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for cart in carts %}
+        {% if cart.quantity != 0 %}
+      <tr>
+          <th scope="row">{{ cart.id }}</th>
+          <th scope="row">{{ cart.product.name }}</th>
+          <td>{{ cart.product.price }}</td>
+          <td>{{ cart.quantity }}</td>
+          <th scope="row">{{ cart.product.image }}</th>
+          <th scope="row">{{ cart.product.category }}</th>
+          <td>
+            <a class="btn btn-success" href="{% url 'products:edit_savatcha' cart.id %}">Update</a>
+            <a class="btn btn-danger" href="{% url 'products:delete_savatcha' cart.id %}">Delete</a>
+          </td>
+
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

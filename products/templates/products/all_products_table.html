@@ -1,0 +1,42 @@
+{% extends 'products/seller.html' %}
+
+{% block title %}
+<title>This is All Products page</title>
+{% endblock title %}
+
+
+
+
+{% block content %}
+<table class="table">
+    <thead>
+      <tr>
+          <th scope="col">Id</th>
+          <th scope="col"> Name</th>
+          <th scope="col"> Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Image</th>
+          <th scope="col">category</th>
+          <th scope="col">Buttons</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+      <tr>
+          <th scope="row">{{ product.id }}</th>
+          <th scope="row">{{ product.name }}</th>
+          <td>{{ product.price }}</td>
+          <td>{{ product.quantity }}</td>
+          <th scope="row">{{ product.image }}</th>
+          <th scope="row">{{ product.category }}</th>
+          <td>
+            <a class="btn btn-success" href="{% url 'products:edit_product' product.id %}">Update</a>
+            <a class="btn btn-danger" href="{% url 'products:delete_product' product.id %}">Delete</a>
+          </td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

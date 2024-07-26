@@ -1,0 +1,17 @@
+{% extends 'products/seller.html' %}
+
+{% block content %}
+
+<div class="container" >
+    <h1>Edit Product page</h1>
+
+<form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{form}}
+
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
+</div>
+
+{% endblock content %}
